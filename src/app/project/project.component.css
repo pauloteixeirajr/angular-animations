@@ -15,6 +15,10 @@ button {
   padding: 19px;
 }
 
+:host(.inactive) {
+  color: #ccc;
+}
+
 .form-control {
   display: inline-block;
   width: 50%;
