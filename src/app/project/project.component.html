@@ -1,7 +1,9 @@
 <h3>
   {{ project.name }}
   <!-- Show different usages of ngClass and ngStyle"-->
-  <span class="badge badge-secondary">{{ project.status }}</span>
+  <span class="badge" [ngClass]="getProjectStatusClass()">
+    {{ project.status }}
+  </span>
 </h3>
 <hr />
 <p>{{ project.description }}</p>
