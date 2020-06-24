@@ -5,3 +5,27 @@
 .marked {
   border: 2px solid darkblue;
 }
+
+.progress {
+  width: 200px;
+  height: 20px;
+  border: 1px solid black;
+  margin: auto;
+  box-sizing: content-box;
+}
+
+.progress-bar {
+  width: 0;
+  height: 20px;
+  animation: loading 1s ease-out infinite;
+}
+
+@keyframes loading {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
