@@ -25,7 +25,13 @@ export const markedTrigger = trigger('marked', [
   ),
   transition('default => marked', [
     style({ border: '2px solid black', padding: '19px' }),
-    animate('300ms ease-out'),
+    animate(
+      '200ms ease-out',
+      style({
+        transform: 'scale(1.05)',
+      })
+    ),
+    animate(200),
   ]),
   transition('marked => default', [
     style({ border: '1px solid darkblue', padding: '20px' }),
