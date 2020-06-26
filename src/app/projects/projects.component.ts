@@ -41,7 +41,10 @@ export class ProjectsComponent implements OnInit {
 
   onProjectCreated(project: Project) {
     this.createNew = false;
-    this.projects.unshift(project);
+    // Wait for the slide anitmation to finish to add the project to the array
+    setTimeout(() => {
+      this.projects.unshift(project);
+    }, 500);
   }
 
   onItemAnimated(event: AnimationEvent, lastProjectId: number) {
