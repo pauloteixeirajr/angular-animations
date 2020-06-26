@@ -1,18 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
 
 import { Project } from './project.model';
 
 import { ProjectsService } from './projects.service';
 import { markedTrigger, itemTrigger, slideTrigger } from './animations';
 import { AnimationEvent } from '@angular/animations';
+import { routeFadeTrigger } from '../shared/route-animations';
 
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.css'],
-  animations: [markedTrigger, itemTrigger, slideTrigger],
+  animations: [markedTrigger, itemTrigger, slideTrigger, routeFadeTrigger],
 })
 export class ProjectsComponent implements OnInit {
+  @HostBinding('@routeFade') routeAnimation = true;
+
   projects: Project[];
   displayedProjects: Project[] = [];
   markedPrjIndex = 0;
