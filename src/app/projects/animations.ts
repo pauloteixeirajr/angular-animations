@@ -4,6 +4,7 @@ import {
   style,
   transition,
   animate,
+  keyframes,
 } from '@angular/animations';
 
 export const markedTrigger = trigger('marked', [
@@ -41,22 +42,44 @@ export const markedTrigger = trigger('marked', [
 
 export const itemTrigger = trigger('item', [
   transition(':enter', [
-    style({ transform: 'translateX(-100%)', opacity: 0 }),
     animate(
       '500ms ease-out',
-      style({
-        opacity: 1,
-        transform: 'translateX(0)',
-      })
+      keyframes([
+        style({
+          opacity: 0,
+          transform: 'translateX(-100%)',
+          offset: 0,
+        }),
+        style({
+          opacity: 1,
+          transform: 'translateX(15%)',
+          offset: 0.4,
+        }),
+        style({
+          opacity: 1,
+          transform: 'translateX(0)',
+          offset: 1,
+        }),
+      ])
     ),
   ]),
   transition(':leave', [
     animate(
       '500ms ease-in',
-      style({
-        opacity: 0,
-        transform: 'translateX(100%)',
-      })
+      keyframes([
+        style({
+          opacity: 1,
+          transform: 'translateX(0)',
+        }),
+        style({
+          opacity: 1,
+          transform: 'translateX(-15%)',
+        }),
+        style({
+          opacity: 0,
+          transform: 'translateX(100%)',
+        }),
+      ])
     ),
   ]),
 ]);

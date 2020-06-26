@@ -3,3 +3,7 @@ h1 {
   font-style: 18px;
   color: darkgreen;
 }
+
+.row {
+  display: block !important;
+}
