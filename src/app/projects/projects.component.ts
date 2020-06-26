@@ -5,16 +5,26 @@ import { Project } from './project.model';
 import { ProjectsService } from './projects.service';
 import { markedTrigger, itemTrigger, slideTrigger } from './animations';
 import { AnimationEvent } from '@angular/animations';
-import { routeFadeTrigger } from '../shared/route-animations';
+import {
+  routeFadeTrigger,
+  routeSlideTrigger,
+} from '../shared/route-animations';
 
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.css'],
-  animations: [markedTrigger, itemTrigger, slideTrigger, routeFadeTrigger],
+  animations: [
+    markedTrigger,
+    itemTrigger,
+    slideTrigger,
+    routeFadeTrigger,
+    routeSlideTrigger,
+  ],
 })
 export class ProjectsComponent implements OnInit {
-  @HostBinding('@routeFade') routeAnimation = true;
+  // @HostBinding('@routeFade') routeAnimation = true;
+  @HostBinding('@routeSlide') routeAnimation = true;
 
   projects: Project[];
   displayedProjects: Project[] = [];

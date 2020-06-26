@@ -17,3 +17,23 @@ export const routeFadeTrigger = trigger('routeFade', [
     )
   ),
 ]);
+
+export const routeSlideTrigger = trigger('routeSlide', [
+  transition(':enter', [
+    style({
+      transform: 'translateY(-100%)',
+      opacity: 0,
+    }),
+    animate(1000),
+  ]),
+  transition(
+    ':leave',
+    animate(
+      1000,
+      style({
+        transform: 'translateY(100%)',
+        opacity: 0,
+      })
+    )
+  ),
+]);
