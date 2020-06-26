@@ -35,6 +35,7 @@
     </div>
     <app-project
       *ngFor="let prj of projects; let i = index"
+      @item
       [project]="prj"
       [@marked]="markedPrjIndex === i ? 'marked' : 'default'"
       [ngClass]="{ inactive: prj.status === 'inactive' }"
