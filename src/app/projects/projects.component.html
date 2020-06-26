@@ -34,8 +34,9 @@
       <div class="progress-bar" *ngIf="progress !== 'finished'"></div>
     </div>
     <app-project
-      *ngFor="let prj of projects; let i = index"
+      *ngFor="let prj of displayedProjects; let i = index"
       @item
+      (@item.done)="onItemAnimated($event, i)"
       [project]="prj"
       [@marked]="markedPrjIndex === i ? 'marked' : 'default'"
       [ngClass]="{ inactive: prj.status === 'inactive' }"
