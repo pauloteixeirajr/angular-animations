@@ -6,7 +6,11 @@
 <hr />
 <div class="row">
   <div class="col-xs-12">
-    <button class="btn btn-light" *ngIf="!createNew" (click)="createNew = true">
+    <button
+      class="btn btn-secondary"
+      *ngIf="!createNew"
+      (click)="createNew = true"
+    >
       Create new Project
     </button>
     <button
@@ -21,6 +25,7 @@
 <div class="row">
   <div class="col-xs-12" style="overflow: hidden;">
     <app-new-project
+      @slide
       *ngIf="createNew"
       (projectCreated)="onProjectCreated($event)"
       (creationCancelled)="createNew = false"
@@ -35,7 +40,7 @@
     </div>
     <app-project
       *ngFor="let prj of displayedProjects; let i = index"
-      @item
+      [@item]="createNew ? 'slidDown' : 'slidUp'"
       (@item.done)="onItemAnimated($event, i)"
       [project]="prj"
       [@marked]="markedPrjIndex === i ? 'marked' : 'default'"
