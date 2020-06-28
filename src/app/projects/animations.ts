@@ -5,6 +5,8 @@ import {
   transition,
   animate,
   keyframes,
+  query,
+  stagger,
 } from '@angular/animations';
 
 export const markedTrigger = trigger('marked', [
@@ -41,28 +43,6 @@ export const markedTrigger = trigger('marked', [
 ]);
 
 export const itemTrigger = trigger('item', [
-  transition(':enter', [
-    animate(
-      '500ms ease-out',
-      keyframes([
-        style({
-          opacity: 0,
-          transform: 'translateX(-100%)',
-          offset: 0,
-        }),
-        style({
-          opacity: 1,
-          transform: 'translateX(15%)',
-          offset: 0.4,
-        }),
-        style({
-          opacity: 1,
-          transform: 'translateX(0)',
-          offset: 1,
-        }),
-      ])
-    ),
-  ]),
   transition(':leave', [
     animate(
       '500ms ease-in',
@@ -127,6 +107,38 @@ export const slideTrigger = trigger('slide', [
       style({
         transform: 'translateY(-100%)',
       })
+    ),
+  ]),
+]);
+
+export const listTrigger = trigger('listState', [
+  transition('* => *', [
+    query(
+      ':enter',
+      [
+        style({
+          opacity: 0,
+          transform: 'translateX(-100%)',
+        }),
+        stagger(100, [
+          animate(
+            '500ms ease-out',
+            keyframes([
+              style({
+                opacity: 1,
+                transform: 'translateX(15%)',
+                offset: 0.4,
+              }),
+              style({
+                opacity: 1,
+                transform: 'translateX(0)',
+                offset: 1,
+              }),
+            ])
+          ),
+        ]),
+      ],
+      { optional: true }
     ),
   ]),
 ]);
