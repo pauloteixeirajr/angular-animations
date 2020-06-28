@@ -6,7 +6,7 @@
       Show Panel
     </button>
     <hr />
-    <div class="card" *ngIf="showPanel" @panelState>
+    <div class="card" *ngIf="showPanel" [@panelState]="showParagraph">
       <div class="card-header">Let's see what query does</div>
       <div class="card-body">
         <p>query() gives you a lot of flexibility!</p>
