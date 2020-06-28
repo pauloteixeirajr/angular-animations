@@ -1,22 +1,37 @@
-import { trigger, transition, style, animate } from '@angular/animations';
+import {
+  trigger,
+  transition,
+  style,
+  animate,
+  animation,
+  useAnimation,
+} from '@angular/animations';
 
-export const routeFadeTrigger = trigger('routeFade', [
-  transition(':enter', [
+const fadeAnimation = animation(
+  [
     style({
-      opacity: 0,
+      opacity: '{{ startOpacity }}',
     }),
-    animate(300),
-  ]),
-  transition(
-    ':leave',
-    animate(
-      300,
-      style({
-        opacity: 0,
-      })
-    )
-  ),
-]);
+    animate('{{ duration }}'),
+  ],
+  {
+    params: { startOpacity: 0, duration: '100ms' },
+  }
+);
+
+export const routeFadeTrigger = params =>
+  trigger('routeFade', [
+    transition(':enter', [useAnimation(fadeAnimation, { params })]),
+    transition(
+      ':leave',
+      animate(
+        300,
+        style({
+          opacity: 0,
+        })
+      )
+    ),
+  ]);
 
 export const routeSlideTrigger = trigger('routeSlide', [
   transition(':enter', [

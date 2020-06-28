@@ -8,7 +8,10 @@ import {
   selector: 'app-users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css'],
-  animations: [routeFadeTrigger, routeSlideTrigger],
+  animations: [
+    routeFadeTrigger({ startOpacity: 0, duration: '500ms' }),
+    routeSlideTrigger,
+  ],
 })
 export class UsersComponent implements OnInit {
   // @HostBinding('@routeFade') routeAnimation = true;

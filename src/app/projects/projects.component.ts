@@ -22,7 +22,7 @@ import {
     markedTrigger,
     itemTrigger,
     slideTrigger,
-    routeFadeTrigger,
+    // routeFadeTrigger({}),
     routeSlideTrigger,
     listTrigger,
   ],
