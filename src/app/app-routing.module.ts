@@ -6,8 +6,16 @@ import { UsersComponent } from './users/users.component';
 import { NewFeaturesComponent } from './new-features/new-features.component';
 
 const appRoutes: Routes = [
-  { path: '', component: ProjectsComponent },
-  { path: 'users', component: UsersComponent },
+  {
+    path: '',
+    component: ProjectsComponent,
+    data: { animation: { page: 'rootPage' } },
+  },
+  {
+    path: 'users',
+    component: UsersComponent,
+    data: { animation: { page: 'usersPage' } },
+  },
   { path: 'new_feat', component: NewFeaturesComponent },
 ];
 
