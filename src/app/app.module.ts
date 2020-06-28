@@ -11,6 +11,7 @@ import { ProjectsService } from './projects/projects.service';
 import { NewProjectComponent } from './new-project/new-project.component';
 import { UsersComponent } from './users/users.component';
 import { AppRoutingModule } from './app-routing.module';
+import { NewFeaturesComponent } from './new-features/new-features.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { AppRoutingModule } from './app-routing.module';
     ProjectComponent,
     NewProjectComponent,
     UsersComponent,
+    NewFeaturesComponent,
   ],
   imports: [
     BrowserModule,
