@@ -5,6 +5,7 @@ import {
   transition,
   group,
   animate,
+  query,
 } from '@angular/animations';
 
 export const buttonTrigger = trigger('validation', [
@@ -64,6 +65,26 @@ export const buttonTrigger = trigger('validation', [
       style({
         transform: 'scale(1)',
       })
+    ),
+  ]),
+]);
+
+export const formTrigger = trigger('formState', [
+  transition('* => *', [
+    query(
+      'input.ng-invalid:focus',
+      [
+        animate(
+          200,
+          style({
+            backgroundColor: 'red',
+          })
+        ),
+        animate(200),
+      ],
+      {
+        optional: true,
+      }
     ),
   ]),
 ]);
